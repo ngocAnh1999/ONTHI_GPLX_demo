@@ -16,5 +16,8 @@ export const styles = StyleSheet.create({
     },
     margin: {
         marginLeft: 8
+    },
+    selected: {
+        backgroundColor: '#1E90FF'
     }
   });
