@@ -33,13 +33,27 @@ export default class ListComponent extends Component {
                         </Button>
                     </Right>
                 </Header>
-                <Content style={{margin: 10}}>
+                <Grid style={{margin: 10}}>
+                    <Col style ={{marginRight: 8}}>
                     {
                         Card_item.map((item) => {
-                            return <CardComponent data={item} />
+                            if(item.key_id%2 == 1) {
+                                return <CardComponent data={item} />
+                            }
                         })
                     }
-                </Content>
+                    </Col>
+                    <Col>
+                    {
+                        Card_item.map((item) => {
+                            if(item.key_id%2 == 0) {
+                                return <CardComponent data={item} />
+                            }
+                        })
+                    }
+                    </Col>
+                    
+                </Grid>
             </Container>
         );
     }
