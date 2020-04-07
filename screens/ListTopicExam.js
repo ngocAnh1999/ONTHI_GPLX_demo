@@ -13,14 +13,15 @@ export default class ListTopicExam extends Component {
 
     render() {
         const { navigation,route } = this.props;
-        const { key_id } = route.params.itemId;
+        const { itemId,mainId } = route.params;
         return (
             <Container>
                 <Header style={{ backgroundColor: "#1E90FF"}}>
                 <Left>
                     <Button transparent
                     onPress={() => navigation.navigate("ListComponent", {
-                        itemId: {key_id}
+                        itemId: itemId,
+                        mainId: mainId
                     })}
                     >
                     <FontAwesome5Icon name="arrow-left" style={{fontSize: 20, color: 'white'}} solid/>

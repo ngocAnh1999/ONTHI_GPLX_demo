@@ -15,14 +15,15 @@ import CardComponent from './CardComponent';
 import {Card_item} from '../data/CardItem';
 export default class ListComponent extends Component {
     onPress = (key_id) => {
-        const { navigation } = this.props;
-        // const {key_id} = this.state;
+        const { navigation,route } = this.props;
+        const {mainId} = route.params;
         if(key_id == 1) {
             alert(key_id);
         }
         if(key_id == 2) {
             navigation.navigate("ListTopicExam", {
-                itemId: {key_id}
+                itemId: key_id,
+                mainId: mainId
             });
         }
         if(key_id == 3) {
@@ -33,7 +34,8 @@ export default class ListComponent extends Component {
         }
         if(key_id == 5) {
             navigation.navigate("ListTrafficSigns", {
-                itemId: {key_id}
+                itemId: key_id,
+                mainId: mainId
             });
             
         }
@@ -49,17 +51,17 @@ export default class ListComponent extends Component {
     }
     render() {
         const { route, navigation } = this.props;
-        const { key_id } = route.params.itemId;
+        const { mainId } = route.params;
         return (
             <Container>
                 <Header>
                     <Body>
-                        <Title style={styles.margin}>Ôn thi giấy phép {key_id}</Title>
+                        <Title style={styles.margin}>Ôn thi giấy phép {mainId}</Title>
                     </Body>
                     <Right>
                         <Button transparent
-                            onPress={(key_id) => navigation.navigate("Home", {
-                                itemId: {key_id}
+                            onPress={() => navigation.navigate("Home", {
+                                mainId: mainId
                             })}
                         >
                             <FontAwesome5Icon name="cog" style={{fontSize: 30, color: 'white'}} solid />
